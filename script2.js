@@ -72,8 +72,6 @@ const getItem = [
    }
  
 
-   init();
-
 /*
    // Promises
    function createPost(item) {
@@ -95,6 +93,25 @@ const getItem = [
   
     createPost({name: 'MarkLogan', age: 500}).then(getPost, (err) => console.log(err));
 */
+
+
+//  async function f() {
+//   return 1;
+// }
+
+// f().then(alert);
+
+
+
+
+
+
+
+async function f() {
+  return Promise.resolve(1);
+}
+
+f().then(alert);
 
 
 
