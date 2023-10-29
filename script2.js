@@ -58,7 +58,24 @@ const getItem = [
      }, 1000);
    }
 
+   function createPost(item) {
+    setTimeout(() => {
+      getItem.push(item);
+    }, 2000);
+   };
 
+
+   
+   async function init() {
+    await createPost({name: 'Alibaba', age: 200});
+    getPost();
+   }
+ 
+
+   init();
+
+/*
+   // Promises
    function createPost(item) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -76,7 +93,8 @@ const getItem = [
         
     };
   
-    createPost({name: 'MarkLogan', age: 500}).then(getPost).catch(err => console.log(err));
+    createPost({name: 'MarkLogan', age: 500}).then(getPost, (err) => console.log(err));
+*/
 
 
-  
+
