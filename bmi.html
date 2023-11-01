@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi calculator</title>
+</head>
+<body>
+
+ <label>cm</label>
+ <input type="number" class="js-height">
+
+<label>kg</label>  
+<input type="number" class="js-weight">
+
+
+<input type="button" value="Calculate" class="js-button">
+
+<p class="js-input"></p>
+<p class="js-identity"></p>
+
+    <script>
+
+        const button = document.querySelector('.js-button');
+
+        function yourBmi() {
+            let calulatedValue = 0;
+
+            let weight = document.querySelector('.js-weight').value;
+            let height = document.querySelector('.js-height').value;
+
+            calulatedValue = weight / Math.pow(height/100, 2);
+
+            return calulatedValue.toFixed(1);
+        }
+
+        button.addEventListener('click', () => {
+            console.log(yourBmi());
+            let bmi = yourBmi();
+            document.querySelector('.js-input').innerHTML = bmi;
+
+            
+            if(16 > bmi) {
+                document.querySelector('.js-identity').innerHTML = 'you are fucking bullshit';
+            } else if(16 < bmi && 18.5 > bmi) {
+                document.querySelector('.js-identity').innerHTML = 'Under weight, you are still bullshit eat moree!';
+            } else if(18.5 < bmi && 25 > bmi) {
+                document.querySelector('.js-identity').innerHTML = 'Normal, You good brah';
+            } else if(25 < bmi && 30 > bmi) {
+                document.querySelector('.js-identity').innerHTML = 'Overweight, Fix your life brah';
+            } else if(30 < bmi && 35 > bmi) {
+                document.querySelector('.js-identity').innerHTML = "Overweight stage 2, You're fucking dogshit get some life";
+            } else if(35 < bmi && 40 > bmi) {
+                document.querySelector('.js-identity').innerHTML = "Obese, you gonna die dude HAHA";
+            } else if(40 < bmi) {
+                document.querySelector('.js-identity').innerHTML = "obese stage 2, there's no chance kill your self right now";
+            } else {
+                document.querySelector('.js-identity').innerHTML = 'study some math the fuck is this?';
+            };
+
+            
+        });
+        
+
+    </script>
+</body>
+</html>
