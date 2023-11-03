@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .btn {
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-left: 50px;
+    }
+
+    .user {
+      display: flex;
+      position: relative;
+      padding: 10px;
+      background: rgb(242, 241, 241);
+      align-items: center;
+      border-radius: 8px;
+      margin-bottom: 5px;
+    }
+
+    .user span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+    }
+
+    .user img {
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .user ul {
+      list-style: none;
+    }
+
+    .user ul li {
+      margin-bottom: 5px;
+    }
+
+    .user2 {
+      padding: 3%;
+    }
+
+  </style>
+</head>
+<body>
+
+<button class="js-btn btn">Get The Developers</button>
+
+<div class="js-user user2">
+
+</div>
+
+<script>
+  document.querySelector('.js-btn').addEventListener('click', loadClick);
+
+  function loadClick() {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'https://api.github.com/users', true);
+
+    xhr.onload = function() {
+      if(this.status == 200) {
+        let users = JSON.parse(this.responseText);
+        let object = [];
+        users.forEach((arr) => {
+          object.push(`
+            <div class="user">
+              <span class="close-btn">X</span>
+              <img src="${arr.avatar_url}" width="60" height="60">
+              <ul>
+                <li>The users ID: ${arr.id}</li>
+                <li>The users ID: ${arr.login}</li>
+              </ul>
+            </div>
+          `);
+        });
+        function closeBtn() {
+          document.querySelector('.js-user').innerHTML = object.join("");
+
+          document.querySelectorAll('.close-btn').forEach((arr, index) => {
+            arr.addEventListener('click', () => {
+              object.splice(index, 1);
+              closeBtn();
+            });
+          });
+        }
+        closeBtn();
+      }
+    };
+    xhr.send();
+  }
+</script>
+</body>
+</html>
