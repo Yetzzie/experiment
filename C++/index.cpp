@@ -8,7 +8,7 @@ int main()
 
   for(int x=0; x<=2; x++) {
     for(int y=0; y<=4; y++) {
-      cout << x << "\n" << y;
+      cout << arr2[x][y];
     }
   }
 }
