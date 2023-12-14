@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+  <style>
+    #modal{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50vh;
+    }
+
+    .main-modal{
+      background-color: rgba(40, 40, 40, 0.668);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+    }
+
+    .box{
+      background-color: rgba(255, 255, 255, 0.925);
+      display: inline-block;
+      height: 15%;
+      padding: 5%;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    .box span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    .activate{
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="modal">
+    <div>
+      <h1>modal</h1>
+      <button id="btn">click for modal</button>
+    </div>
+  </div>
+  <div id="js-modal" class="main-modal">
+    <div class="box">
+      <span class="exit-btn">X</span>
+      <h2>System error please fix it</h2>
+    </div>
+  </div>
+  <script src="/modal/modal.js"></script>
+</body>
+</html>

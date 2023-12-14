@@ -19,7 +19,7 @@ function bubbleSort(arr) {
 
 // Example usage:
 
-const unsortedArray = [64, 34, 25, 12, 99, 11, 90];
+const unsortedArray = [23, 32, 432, 56, 78, 9, 75, 12, 1, 59, 52];
 
 console.log("Unsorted array:", unsortedArray);
 
@@ -43,15 +43,12 @@ for(let i = 0; i < l - 1; i++) {
 console.log(myArr);
 */
 
-function inputHere() {
-  let input = '';
-  input = document.querySelector('.js-input').value;
-
-  let final = `Hi, ${input} How can i help you`;
-
-  return final;
+function widrawSystem() {
+  document.querySelector('.box').className = 'new-class';
 }
 
-document.querySelector('.js-btn').addEventListener('click', ()=> {
-    document.querySelector('.yolo').innerHTML += inputHere();
+document.querySelector('.js-widraw').addEventListener('click', {
+  
 });
+
+
