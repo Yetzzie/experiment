@@ -1,4 +1,4 @@
-import isWeekend from '../dayjs2/dayjsIsWeekend.js';
+import isSatSun from '../dayjs2/dayjsIsWeekend.js';
 import {date} from '../dayjs2/dayjsIsWeekend.js';
 
 const adddedDate = date.add(5, 'day');
@@ -19,5 +19,5 @@ document.querySelector('.js-date3').textContent = subtractDate.format('MMMM DD, 
 //this were we enter if is either monday tuesday or sunday etc. In the date today
 document.querySelector('.js-date4').textContent = date.format('dddd');
 
-//this is i use function when i change the number it will return monday tuesday or sunday etc. In the date today
-document.querySelector('.js-date5').textContent = isWeekend(10);
+//this is i use function when i change the number it will return monday tuesday or sunday etc. In the date today ------- or if we use a export defualt we can use any name for our module because is defualt the default if there no curly brackets.
+document.querySelector('.js-date5').textContent = isSatSun(10);
